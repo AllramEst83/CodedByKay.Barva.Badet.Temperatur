@@ -116,12 +116,13 @@ export function renderApp() {
     generateParticles(theme.particles);
 }
 
-// Formatera mättidpunkt från "YYYY-MM-DD HH:MM:SS" till "DD MMM HH:MM"
+// Formatera mättidpunkt från "YYYY-MM-DD HH:MM:SS" till "DD MMM YYYY HH:MM"
 function formatMeasurementTime(tidStr) {
     if (!tidStr) return '--';
     const d = new Date(tidStr.replace(' ', 'T'));
     if (isNaN(d.getTime())) return tidStr;
     return d.toLocaleString('sv-SE', {
+        year: 'numeric',
         month: 'short',
         day: 'numeric',
         hour: '2-digit',

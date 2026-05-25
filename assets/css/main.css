@@ -2,12 +2,14 @@
 @import url('animations.css');
 @import url('components.css');
 
-html, body {
+html {
     height: 100%;
-    overflow: hidden; /* hindrar vertikalt scroll på mobil */
 }
 
 body {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
     font-family: 'Plus Jakarta Sans', sans-serif;
     transition: background 1s ease, color 1s ease;
 }
