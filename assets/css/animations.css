@@ -1,19 +1,27 @@
 /* animations.css */
 
-/* Våg-animationer */
+/* Våg-animationer – mjuka sinusvågor */
 .wave {
-    animation: wave-anim 12s linear infinite;
+    animation: wave-anim 10s ease-in-out infinite;
+    transform-origin: center bottom;
 }
 .wave-slow {
-    animation: wave-anim-reverse 16s linear infinite;
+    animation: wave-anim-slow 14s ease-in-out infinite;
+    transform-origin: center bottom;
 }
 @keyframes wave-anim {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0%   { transform: translateX(0)    scaleY(1); }
+    25%  { transform: translateX(-12%) scaleY(1.05); }
+    50%  { transform: translateX(-25%) scaleY(1); }
+    75%  { transform: translateX(-37%) scaleY(0.95); }
+    100% { transform: translateX(-50%) scaleY(1); }
 }
-@keyframes wave-anim-reverse {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
+@keyframes wave-anim-slow {
+    0%   { transform: translateX(-50%) scaleY(0.95); }
+    25%  { transform: translateX(-37%) scaleY(1); }
+    50%  { transform: translateX(-25%) scaleY(1.05); }
+    75%  { transform: translateX(-12%) scaleY(1); }
+    100% { transform: translateX(0)    scaleY(0.95); }
 }
 
 /* Partikel-animationer */
@@ -27,4 +35,23 @@
     10% { opacity: 0.8; }
     90% { opacity: 0.8; }
     100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
+/* Laddnings-animation */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; pointer-events: none; }
+}
+.loader-spin {
+    animation: spin 0.8s linear infinite;
+}
+.loader-fade-out {
+    animation: fadeOut 0.5s ease forwards;
 }

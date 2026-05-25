@@ -2,13 +2,45 @@ import { systemState, BATH_PLACES, getAutoSeason, getAutoTimeOfDay } from './sta
 import { fetchWeatherData, fetchWaterTemperature } from './apiService.js';
 import { renderApp } from './uiService.js';
 
+// Hjälpfunktioner för laddningsvisaren
+function showLoader() {
+    const loader = document.getElementById('app-loader');
+    if (!loader) return;
+    loader.classList.remove('loader-fade-out', 'hidden');
+    loader.style.opacity = '1';
+    loader.style.pointerEvents = 'auto';
+}
+
+function hideLoader() {
+    const loader = document.getElementById('app-loader');
+    if (!loader) return;
+    loader.classList.add('loader-fade-out');
+    loader.addEventListener('animationend', () => {
+        loader.classList.add('hidden');
+        loader.style.pointerEvents = 'none';
+    }, { once: true });
+}
+
 // Initiera och starta applikationen
 window.onload = function() {
+    // Visa debug-knapp bara lokalt
+    const debugBtn = document.getElementById('debug-toggle-btn');
+    if (debugBtn && (location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+        debugBtn.classList.remove('hidden');
+    }
+
+    showLoader();
     updateLiveTimeAndSeason();
-    fetchWeatherData();
-    fetchWaterTemperature();
+
+    // Hämta båda datakällorna parallellt, dölj laddaren när klart
+    Promise.all([
+        fetchWeatherData(),
+        fetchWaterTemperature()
+    ]).finally(() => {
+        hideLoader();
+    });
     
-    // Refresh data every 5 minutes
+    // Uppdatera data var 5:e minut
     setInterval(() => {
         if (!systemState.isOverride) {
             updateLiveTimeAndSeason();
@@ -17,13 +49,13 @@ window.onload = function() {
         }
     }, 300000); 
 
-    // Populate bath place selector
+    // Fyll i badplatslistan
     setupBathSelect();
 
-    // Setup Side Panel toggles
+    // Sätt upp sidopanel
     setupSidePanel();
     
-    // Expose override functions to window for demo buttons
+    // Exponera override-funktioner för demoläge
     window.setOverrideSeason = setOverrideSeason;
     window.setOverrideTime = setOverrideTime;
     window.setOverrideTemp = setOverrideTemp;
@@ -68,7 +100,8 @@ function setupBathSelect() {
         if (tempEl) tempEl.innerText = '--.-';
         if (badge) badge.innerText = 'Hämtar data...';
 
-        fetchWaterTemperature();
+        showLoader();
+        fetchWaterTemperature().finally(() => hideLoader());
     });
 }
 

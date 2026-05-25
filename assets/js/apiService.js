@@ -57,7 +57,7 @@ export async function fetchWaterTemperature() {
                 systemState.waterTemp = parsedTemp;
                 systemState.waterDepth = data.depth ?? null;
                 systemState.waterTime = data.time ?? null;
-                if(infoLabel) infoLabel.innerText = "Live via Netlify Functions";
+                if(infoLabel) infoLabel.innerText = "Sensor online";
                 if(pingInd) pingInd.className = "w-2 h-2 rounded-full bg-emerald-400 animate-ping";
                 if(apiStatusDot) apiStatusDot.className = "w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse";
                 logApiEvent(`Framgångsrik tolkning av vattentemp via proxy: ${parsedTemp}°C`);

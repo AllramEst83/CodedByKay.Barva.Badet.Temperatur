@@ -66,7 +66,7 @@ export function renderApp() {
         if (tempEl) tempEl.innerText = '--.-';
         if (badge) {
             badge.className = 'bg-red-900/90 text-red-100 border border-red-500 mt-4 px-4 py-1.5 rounded-full text-sm font-bold shadow-md inline-block theme-transition';
-            badge.innerText = 'Temperature device offline 🔴';
+            badge.innerText = 'Sensor offline 🔴';
         }
         if (advice) advice.innerText = `Temperatursensorn vid ${systemState.selectedBathName} verkar vara nedkopplad för tillfället.`;
         if (timeEl) timeEl.innerText = '--';
@@ -109,7 +109,7 @@ export function renderApp() {
         if (tempEl) tempEl.innerText = '--.-';
         if (badge) {
             badge.className = 'bg-gray-800 text-gray-200 mt-4 px-4 py-1.5 rounded-full text-sm font-bold shadow-md inline-block';
-            badge.innerText = 'Laddar...';
+            badge.innerText = 'Synkroniserar...';
         }
     }
 
