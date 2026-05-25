@@ -20,7 +20,7 @@
             <circle class="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"/>
             <path class="opacity-90" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/>
         </svg>
-        <p class="text-white/70 text-sm font-medium tracking-wide">Hämtar badtemperatur...</p>
+        <p class="text-white/90 text-sm font-medium tracking-wide">Hämtar badtemperatur...</p>
     </div>
 
     <!-- Bakgrunds-overlay för atmosfärseffekter -->
@@ -32,14 +32,14 @@
         
         <!-- Header -->
         <header class="text-center mb-3 md:mb-5">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/30 backdrop-blur-md border border-white/20 text-xs font-semibold tracking-wider uppercase mb-2 shadow-sm text-shadow-sm">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/55 backdrop-blur-md border border-white/25 text-xs font-semibold tracking-wider uppercase mb-2 shadow-sm text-shadow-sm">
                 <span id="ping-indicator" class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
                 <span id="live-indicator">Initierar anslutning...</span>
             </div>
-            <h1 class="text-3xl md:text-6xl font-extrabold tracking-tight drop-shadow-md text-white text-shadow-md">
+            <h1 class="text-3xl md:text-6xl font-extrabold tracking-tight text-white text-shadow-lg">
                 Badlappen
             </h1>
-            <p class="text-white/90 text-xs md:text-base mt-1 font-medium text-shadow-sm">
+            <p class="text-white text-xs md:text-base mt-1 font-medium text-shadow-sm">
                 Aktuell badtemperatur vid <span id="bath-name-subtitle">Barva badplats</span>
             </p>
 
@@ -48,13 +48,13 @@
                 <select id="bath-select" class="appearance-none w-64 md:w-80 bg-black/40 backdrop-blur-md border border-white/25 text-white text-sm font-semibold rounded-xl px-4 py-2.5 pr-10 shadow-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/40 transition-all hover:bg-black/60">
                 </select>
                 <div class="pointer-events-none absolute top-0 bottom-0 right-3 flex items-center">
-                    <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="w-4 h-4 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </div>
             </div>
         </header>
 
         <!-- Stora Temperaturkortet -->
-        <section class="w-full bg-black/20 backdrop-blur-xl border border-white/20 rounded-3xl p-4 md:p-8 shadow-2xl text-center mb-3 md:mb-5 relative overflow-hidden theme-transition">
+        <section class="w-full bg-black/40 backdrop-blur-xl border border-white/20 rounded-3xl p-4 md:p-8 shadow-2xl text-center mb-3 md:mb-5 relative overflow-hidden theme-transition">
             
             <!-- Vattennivå-visualisering i kortets botten -->
             <div class="absolute bottom-0 left-0 right-0 h-28 overflow-hidden pointer-events-none opacity-25 z-0">
@@ -68,17 +68,17 @@
 
             <!-- Temperatur Display -->
             <div class="relative z-10 flex flex-col items-center py-2 md:py-4">
-                <span class="text-xs font-bold uppercase tracking-widest text-white/80 mb-1 text-shadow-sm">Vattentemp (IoT)</span>
+                <span class="text-xs font-bold uppercase tracking-widest text-white/90 mb-1 text-shadow-sm">Vattentemp (IoT)</span>
                 <div class="flex items-start justify-center">
-                    <span id="water-temp" class="text-6xl md:text-9xl font-black tracking-tighter drop-shadow-lg text-white">--.-</span>
-                    <span class="text-3xl md:text-6xl font-bold mt-2 text-white">°C</span>
+                    <span id="water-temp" class="text-6xl md:text-9xl font-black tracking-tighter text-white text-shadow-lg">--.-</span>
+                    <span class="text-3xl md:text-6xl font-bold mt-2 text-white text-shadow-md">°C</span>
                 </div>
                 
                 <!-- Dynamisk Rekommendation / Status -->
                 <div id="badge-container" class="mt-2 md:mt-4 px-4 py-1.5 rounded-full text-sm font-bold shadow-md inline-block bg-black/40 text-white">
                     Hämtar data...
                 </div>
-                <p id="temp-advice" class="mt-2 md:mt-4 text-sm md:text-lg font-medium text-white/95 max-w-md text-shadow-sm">
+                <p id="temp-advice" class="mt-2 md:mt-4 text-sm md:text-lg font-medium text-white max-w-md text-shadow-sm">
                     Synkroniserar med Eskilstuna kommuns öppna databas...
                 </p>
             </div>
@@ -87,50 +87,50 @@
         <!-- Grid för extra miljödata -->
         <section class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 w-full z-20">
             <!-- Lufttemperatur -->
-            <div class="bg-black/30 backdrop-blur-lg border border-white/10 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                <span class="text-white/80 text-xs font-semibold uppercase mb-1">Lufttemp (SMHI)</span>
+            <div class="bg-black/50 backdrop-blur-lg border border-white/15 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-center text-center text-shadow-sm">
+                <span class="text-white/90 text-xs font-semibold uppercase mb-1">Lufttemp (SMHI)</span>
                 <div class="flex items-center gap-1">
                     <svg class="w-4 h-4 md:w-5 md:h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707-.707m2.828-9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                    <span id="air-temp" class="text-base md:text-xl font-bold">--.- °C</span>
+                    <span id="air-temp" class="text-base md:text-xl font-bold text-white">--.- °C</span>
                 </div>
             </div>
 
             <!-- Vindstyrka -->
-            <div class="bg-black/30 backdrop-blur-lg border border-white/10 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                <span class="text-white/80 text-xs font-semibold uppercase mb-1">Vind (SMHI)</span>
+            <div class="bg-black/50 backdrop-blur-lg border border-white/15 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-center text-center text-shadow-sm">
+                <span class="text-white/90 text-xs font-semibold uppercase mb-1">Vind (SMHI)</span>
                 <div class="flex items-center gap-1">
                     <svg class="w-4 h-4 md:w-5 md:h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4M16 16H8M18 8H6"/></svg>
-                    <span id="wind-speed" class="text-base md:text-xl font-bold">-- m/s</span>
+                    <span id="wind-speed" class="text-base md:text-xl font-bold text-white">-- m/s</span>
                 </div>
             </div>
 
             <!-- Aktuell Säsong -->
-            <div class="bg-black/30 backdrop-blur-lg border border-white/10 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                <span class="text-white/80 text-xs font-semibold uppercase mb-1">Säsong</span>
-                <span id="season-name" class="text-base md:text-xl font-bold">Laddar...</span>
+            <div class="bg-black/50 backdrop-blur-lg border border-white/15 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-center text-center text-shadow-sm">
+                <span class="text-white/90 text-xs font-semibold uppercase mb-1">Säsong</span>
+                <span id="season-name" class="text-base md:text-xl font-bold text-white">Laddar...</span>
             </div>
 
             <!-- Klockslag / Dygnstid -->
-            <div class="bg-black/30 backdrop-blur-lg border border-white/10 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                <span class="text-white/80 text-xs font-semibold uppercase mb-1">Status</span>
-                <span id="day-status" class="text-base md:text-xl font-bold">Laddar...</span>
+            <div class="bg-black/50 backdrop-blur-lg border border-white/15 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-center text-center text-shadow-sm">
+                <span class="text-white/90 text-xs font-semibold uppercase mb-1">Status</span>
+                <span id="day-status" class="text-base md:text-xl font-bold text-white">Laddar...</span>
             </div>
 
             <!-- Mättidpunkt -->
-            <div class="bg-black/30 backdrop-blur-lg border border-white/10 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                <span class="text-white/80 text-xs font-semibold uppercase mb-1">Mätt kl.</span>
+            <div class="bg-black/50 backdrop-blur-lg border border-white/15 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-center text-center text-shadow-sm">
+                <span class="text-white/90 text-xs font-semibold uppercase mb-1">Mätt kl.</span>
                 <div class="flex items-center gap-1.5">
                     <svg class="w-4 h-4 text-cyan-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    <span id="measurement-time" class="text-sm md:text-base font-bold leading-tight">--</span>
+                    <span id="measurement-time" class="text-sm md:text-base font-bold leading-tight text-white">--</span>
                 </div>
             </div>
 
             <!-- Mätdjup -->
-            <div class="bg-black/30 backdrop-blur-lg border border-white/10 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                <span class="text-white/80 text-xs font-semibold uppercase mb-1">Mätdjup</span>
+            <div class="bg-black/50 backdrop-blur-lg border border-white/15 rounded-2xl p-3 md:p-4 flex flex-col items-center justify-center text-center text-shadow-sm">
+                <span class="text-white/90 text-xs font-semibold uppercase mb-1">Mätdjup</span>
                 <div class="flex items-center gap-1.5">
                     <svg class="w-4 h-4 text-blue-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
-                    <span id="measurement-depth" class="text-base md:text-xl font-bold">--</span>
+                    <span id="measurement-depth" class="text-base md:text-xl font-bold text-white">--</span>
                 </div>
             </div>
         </section>
@@ -138,14 +138,14 @@
     </main>
 
     <!-- Footer -->
-    <footer class="relative z-30 w-full text-center py-3 md:py-4 px-4 bg-black/40 backdrop-blur-md border-t border-white/10 text-white/70 text-xs">
+    <footer class="relative z-30 w-full text-center py-3 md:py-4 px-4 bg-black/65 backdrop-blur-md border-t border-white/15 text-white/90 text-xs">
         <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
             <div>
-                Data från <span class="font-semibold text-white/90">Eskilstuna Kommun</span> IoT-sensorsystem.
+                Data från <span class="font-semibold text-white">Eskilstuna Kommun</span> IoT-sensorsystem.
             </div>
             <div class="flex gap-4 font-mono text-[11px]">
                 <span>Skapad av <strong>Kay Virgin Wiberg</strong></span>
-                <a href="https://github.com/AllramEst83" target="_blank" class="hover:text-white transition-colors underline">Github</a>
+                <a href="https://github.com/AllramEst83" target="_blank" class="text-white/90 hover:text-white transition-colors underline">Github</a>
             </div>
         </div>
     </footer>
@@ -164,7 +164,7 @@
             <h2 class="text-lg font-bold text-white flex items-center gap-2">
                 ⚙️ Debug & Verktyg
             </h2>
-            <button id="debug-close-btn" class="text-white/60 hover:text-white transition-colors p-1" aria-label="Close Debug Tools">
+            <button id="debug-close-btn" class="text-white/80 hover:text-white transition-colors p-1" aria-label="Close Debug Tools">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         </div>
@@ -179,59 +179,59 @@
                 
                 <div class="space-y-4">
                     <!-- Slutpunktsadresser -->
-                    <div class="text-[11px] font-mono bg-black/40 p-3 rounded-lg border border-white/5 space-y-2">
+                    <div class="text-[11px] font-mono bg-black/40 p-3 rounded-lg border border-white/10 space-y-2">
                         <div>
                             <span class="text-emerald-400 font-bold">Väder Endpoint:</span><br>
-                            <span class="text-white/80 break-all">/.netlify/functions/get-weather</span>
+                            <span class="text-white/90 break-all">/.netlify/functions/get-weather</span>
                         </div>
                         <div>
                             <span class="text-cyan-400 font-bold">Vattentemp Endpoint:</span><br>
-                            <span class="text-white/80 break-all">/.netlify/functions/get-water-temp</span>
+                            <span class="text-white/90 break-all">/.netlify/functions/get-water-temp</span>
                         </div>
                     </div>
 
                     <!-- Live Konsol-logg -->
                     <div>
-                        <span class="block text-xs font-bold text-white/70 mb-1 uppercase tracking-wider">Hämtningssekvens:</span>
-                        <div id="api-log-container" class="bg-slate-950 p-3 rounded-xl border border-white/5 h-36 overflow-y-auto font-mono text-[11px] text-emerald-400 custom-scrollbar space-y-1">
+                        <span class="block text-xs font-bold text-white/90 mb-1 uppercase tracking-wider">Hämtningssekvens:</span>
+                        <div id="api-log-container" class="bg-slate-950 p-3 rounded-xl border border-white/10 h-36 overflow-y-auto font-mono text-[11px] text-emerald-400 custom-scrollbar space-y-1">
                             <div>[SYSTEM] Initierar logg...</div>
                         </div>
                     </div>
 
                     <!-- Metadata JSON-LD Preview -->
                     <div>
-                        <span class="block text-xs font-bold text-white/70 mb-1 uppercase tracking-wider">Resurs Telemetri:</span>
-                        <textarea id="resource-raw" readonly class="w-full h-32 bg-slate-900/80 rounded-lg p-2 font-mono text-[10px] text-white/60 border border-white/5 focus:outline-none resize-none custom-scrollbar" placeholder="Väntar på resurs-svar..."></textarea>
+                        <span class="block text-xs font-bold text-white/90 mb-1 uppercase tracking-wider">Resurs Telemetri:</span>
+                        <textarea id="resource-raw" readonly class="w-full h-32 bg-slate-900/80 rounded-lg p-2 font-mono text-[10px] text-white/80 border border-white/10 focus:outline-none resize-none custom-scrollbar" placeholder="Väntar på resurs-svar..."></textarea>
                     </div>
                 </div>
             </section>
 
             <!-- Inställningspanel / Demoläge för testning -->
             <section class="bg-black/30 rounded-xl p-4 border border-white/5">
-                <h3 class="font-bold text-sm mb-3 text-white/90">Demoläge (Teman & Test)</h3>
+                <h3 class="font-bold text-sm mb-3 text-white">Demoläge (Teman & Test)</h3>
                 <div class="space-y-4 text-xs">
                     <div>
-                        <span class="block text-white/80 mb-1.5 font-medium">Säsong:</span>
+                        <span class="block text-white/90 mb-1.5 font-medium">Säsong:</span>
                         <div class="grid grid-cols-4 gap-1.5">
-                            <button onclick="window.setOverrideSeason('spring')" class="bg-white/10 hover:bg-white/25 py-1.5 rounded transition-colors text-white/90">Vår</button>
-                            <button onclick="window.setOverrideSeason('summer')" class="bg-white/10 hover:bg-white/25 py-1.5 rounded transition-colors text-white/90">Sommar</button>
-                            <button onclick="window.setOverrideSeason('autumn')" class="bg-white/10 hover:bg-white/25 py-1.5 rounded transition-colors text-white/90">Höst</button>
-                            <button onclick="window.setOverrideSeason('winter')" class="bg-white/10 hover:bg-white/25 py-1.5 rounded transition-colors text-white/90">Vinter</button>
+                            <button onclick="window.setOverrideSeason('spring')" class="bg-white/15 hover:bg-white/30 py-1.5 rounded transition-colors text-white">Vår</button>
+                            <button onclick="window.setOverrideSeason('summer')" class="bg-white/15 hover:bg-white/30 py-1.5 rounded transition-colors text-white">Sommar</button>
+                            <button onclick="window.setOverrideSeason('autumn')" class="bg-white/15 hover:bg-white/30 py-1.5 rounded transition-colors text-white">Höst</button>
+                            <button onclick="window.setOverrideSeason('winter')" class="bg-white/15 hover:bg-white/30 py-1.5 rounded transition-colors text-white">Vinter</button>
                         </div>
                     </div>
                     <div>
-                        <span class="block text-white/80 mb-1.5 font-medium">Tid på dygnet:</span>
+                        <span class="block text-white/90 mb-1.5 font-medium">Tid på dygnet:</span>
                         <div class="grid grid-cols-4 gap-1.5">
-                            <button onclick="window.setOverrideTime('morning')" class="bg-white/10 hover:bg-white/25 py-1.5 rounded transition-colors text-white/90">Morgon</button>
-                            <button onclick="window.setOverrideTime('day')" class="bg-white/10 hover:bg-white/25 py-1.5 rounded transition-colors text-white/90">Dag</button>
-                            <button onclick="window.setOverrideTime('evening')" class="bg-white/10 hover:bg-white/25 py-1.5 rounded transition-colors text-white/90">Kväll</button>
-                            <button onclick="window.setOverrideTime('night')" class="bg-white/10 hover:bg-white/25 py-1.5 rounded transition-colors text-white/90">Natt</button>
+                            <button onclick="window.setOverrideTime('morning')" class="bg-white/15 hover:bg-white/30 py-1.5 rounded transition-colors text-white">Morgon</button>
+                            <button onclick="window.setOverrideTime('day')" class="bg-white/15 hover:bg-white/30 py-1.5 rounded transition-colors text-white">Dag</button>
+                            <button onclick="window.setOverrideTime('evening')" class="bg-white/15 hover:bg-white/30 py-1.5 rounded transition-colors text-white">Kväll</button>
+                            <button onclick="window.setOverrideTime('night')" class="bg-white/15 hover:bg-white/30 py-1.5 rounded transition-colors text-white">Natt</button>
                         </div>
                     </div>
                     <div>
-                        <span class="block text-white/80 mb-1.5 font-medium">Vattentemp:</span>
+                        <span class="block text-white/90 mb-1.5 font-medium">Vattentemp:</span>
                         <input type="range" min="0" max="25" step="0.5" id="temp-slider" class="w-full accent-cyan-400 bg-white/20 h-1.5 rounded-lg appearance-none cursor-pointer" oninput="window.setOverrideTemp(this.value)">
-                        <div class="flex justify-between text-[10px] text-white/60 mt-1.5 font-medium">
+                        <div class="flex justify-between text-[10px] text-white/80 mt-1.5 font-medium">
                             <span>0°C</span>
                             <span id="slider-val">Standard</span>
                             <span>25°C</span>
