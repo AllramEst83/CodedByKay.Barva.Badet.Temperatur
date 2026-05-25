@@ -6,7 +6,7 @@ export function logApiEvent(msg) {
     if (!container) return;
     const time = new Date().toLocaleTimeString('sv-SE');
     const newLog = document.createElement('div');
-    newLog.innerHTML = `<span class="text-white/40">[${time}]</span> ${msg}`;
+    newLog.innerHTML = `<span class="text-white/60">[${time}]</span> ${msg}`;
     container.appendChild(newLog);
     container.scrollTop = container.scrollHeight;
 }
