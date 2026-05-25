@@ -1,0 +1,30 @@
+/* animations.css */
+
+/* Våg-animationer */
+.wave {
+    animation: wave-anim 12s linear infinite;
+}
+.wave-slow {
+    animation: wave-anim-reverse 16s linear infinite;
+}
+@keyframes wave-anim {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+@keyframes wave-anim-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* Partikel-animationer */
+.particle {
+    position: absolute;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+@keyframes fall {
+    0% { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}

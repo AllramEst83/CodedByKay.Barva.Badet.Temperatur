@@ -1,0 +1,34 @@
+/* components.css */
+
+/* Anpassad rullningslist för API-logg och paneler */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+/* Off-canvas Side Panel Styles */
+.side-panel {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.side-panel.open {
+    transform: translateX(0);
+}
+
+.side-panel-overlay {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.side-panel-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
