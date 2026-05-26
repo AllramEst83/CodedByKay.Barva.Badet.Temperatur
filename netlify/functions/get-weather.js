@@ -1,7 +1,11 @@
 export async function handler(event, context) {
-    const BARVA_LAT = 59.3512;
-    const BARVA_LON = 16.8122;
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${BARVA_LAT}&longitude=${BARVA_LON}&current=temperature_2m,wind_speed_10m`;
+    const DEFAULT_LAT = 59.3811;
+    const DEFAULT_LON = 16.7945;
+
+    const lat = parseFloat(event.queryStringParameters?.lat) || DEFAULT_LAT;
+    const lon = parseFloat(event.queryStringParameters?.lon) || DEFAULT_LON;
+
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,wind_speed_10m`;
 
     try {
         const response = await fetch(url);

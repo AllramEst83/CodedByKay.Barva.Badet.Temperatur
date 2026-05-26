@@ -4,8 +4,11 @@ import { logApiEvent, renderApp } from './uiService.js';
 // Hämta utomhustemperatur och vindhastighet från Netlify Serverless Function
 export async function fetchWeatherData() {
     try {
-        logApiEvent("Anropar väder-API via Netlify Function (/api/get-weather)...");
-        const response = await fetch('/.netlify/functions/get-weather');
+        const lat = systemState.selectedBathLat;
+        const lon = systemState.selectedBathLon;
+        logApiEvent(`Anropar väder-API för ${systemState.selectedBathName} (${lat}, ${lon})...`);
+        const url = `/.netlify/functions/get-weather?lat=${lat}&lon=${lon}`;
+        const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
             systemState.airTemp = data.airTemp;

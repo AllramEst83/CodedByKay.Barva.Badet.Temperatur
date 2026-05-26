@@ -90,6 +90,8 @@ function setupBathSelect() {
 
         systemState.selectedBathUuid = selected.uuid;
         systemState.selectedBathName = selected.name;
+        systemState.selectedBathLat = selected.lat;
+        systemState.selectedBathLon = selected.lon;
         systemState.waterTemp = null;
         systemState.isOffline = false;
 
@@ -101,7 +103,10 @@ function setupBathSelect() {
         if (badge) badge.innerText = 'Hämtar data...';
 
         showLoader();
-        fetchWaterTemperature().finally(() => hideLoader());
+        Promise.all([
+            fetchWeatherData(),
+            fetchWaterTemperature()
+        ]).finally(() => hideLoader());
     });
 }
 
