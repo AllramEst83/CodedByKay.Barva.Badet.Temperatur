@@ -132,3 +132,6 @@ dist
 *.sw?
 
 .netlify/
+
+# Generated Tailwind CSS (built on install/deploy)
+assets/css/tailwind.css
